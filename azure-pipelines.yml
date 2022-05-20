@@ -8,19 +8,19 @@ trigger:
 
 variables:
   # Azure Resource Manager connection created during pipeline creation
-  azureServiceConnectionId: '2a30dca8-dd00-491e-bd52-e7a186f18f34'
+  azureServiceConnectionId: 'f1e755fb-5122-487f-a3d7-49007b8b6dc'
 
   # Web app name
-  webAppName: 'wa-dev-we-001'
+  webAppName: 'wa-dev-westeu-001'
 
   # Agent VM image name
   vmImageName: 'ubuntu-latest'
 
   # Environment name
-  environmentName: 'wa-dev-we-001'
+  environmentName: 'wa-dev-westeu-001'
 
   # Project root folder. Point to the folder containing manage.py file.
-  projectRoot: $(System.DefaultWorkingDirectory)
+  projectRoot: $(System.DefaultWorkingDirectory)/wa-dev-westeu-001
 
   # Python version: 3.7
   pythonVersion: '3.7'
@@ -80,7 +80,7 @@ stages:
             displayName: 'Use Python version'
 
           - task: AzureWebApp@1
-            displayName: 'Deploy Azure Web App : wa-dev-we-001'
+            displayName: 'Deploy Azure Web App : wa-dev-westeu-001'
             inputs:
               azureSubscription: $(azureServiceConnectionId)
               appName: $(webAppName)
